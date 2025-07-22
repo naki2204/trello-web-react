@@ -16,7 +16,7 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import Tooltip from '@mui/material/Tooltip'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import Profiles from './Menu/Profiles'
-
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd'
 
 Box
 function AppBar() {
@@ -52,7 +52,7 @@ function AppBar() {
           <Templates />
         </Box>
 
-        <Button variant="outlined" > Create </Button>
+        <Button variant="outlined" startIcon={<LibraryAddIcon />}> Create </Button>
       </Box>
       <Box sx={{
         display: 'flex',
