@@ -12,13 +12,13 @@ import Button from '@mui/material/Button'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
 const MENU_STYLES = {
-  color: 'primary.main',
-  bgcolor: 'white',
+  color: 'white',
+  bgcolor: 'transparent',
   border: 'none',
   paddingX: '5px',
   borderRadius: '4px',
-  '& .MuiSvgIcon-root': {
-    color: 'primary.main'
+  '.MuiSvgIcon-root': {
+    color: 'white'
   },
   '&:hover':{
     bgcolor: 'primary.50'
@@ -27,18 +27,27 @@ const MENU_STYLES = {
 
 function BoardBar() {
   return (
-    <Box sx={{
-      // backgroundColor: 'primary.dark',
-      width: '100%',
-      height: (theme) => theme.trello.boardBarHeght,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      paddingX: 2,
-      gap: 2,
-      overflowX: 'auto',
-      borderTop: '1px solid #00bfa5'
-    }}>
+    <Box
+      sx={[
+        {
+          width: '100%',
+          height: (theme) => theme.trello.boardBarHeght,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          paddingX: 2,
+          gap: 2,
+          overflowX: 'auto',
+          backgroundColor: '#1976d2',
+          borderBottom: '1px solid #00bfa5'
+
+        },
+        (theme) =>
+          theme.applyStyles('dark', {
+            backgroundColor: '#34495e'
+          })
+      ]}
+    >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <Chip
           sx={MENU_STYLES}
@@ -75,16 +84,25 @@ function BoardBar() {
 
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Button variant="outlined" startIcon={<PersonAddIcon />} >
+        <Button
+          variant="outlined"
+          startIcon={<PersonAddIcon />}
+          sx={{
+            color: 'white',
+            borderColor: 'white'
+          }}
+        >
            Invite
         </Button>
         <AvatarGroup
           max={4}
           sx={{
+            gap: 10,
             '& .MuiAvatar-root': {
               width: '34px',
               height: '34px',
-              fontSize: '16px'
+              fontSize: '16px',
+              border: 'none'
             }
           }}
         >
